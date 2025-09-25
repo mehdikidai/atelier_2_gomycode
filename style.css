@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+.app {
+  min-height: 100dvh;
+  background-image: url("./images/bg-desktop.png");
+  background-color: var(--very-dark-blue);
+  background-size: 100% 50%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app .container {
+  /* background: red; */
+  height: 220px;
+  width: calc(100vw - 40px);
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 30px;
+  align-items: end;
+}
+
+.app .container .box {
+  height: 220px;
+  background: var(--dark-blue);
+}
+
+.app .container .box-1 {
+  clip-path: inset(0 round 12px 120px 12px 12px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.app .container .box-1 .icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.app .container .box-1 .logo img {
+  height: 44px;
+}
+
+.app .container .box-1 .icons .icon {
+  border: none;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: inset(0 round 12px);
+  background: var(--very-dark-blue);
+}
+
+.app .container .box-1 .icons .icon img {
+  width: 18px;
+}
+
+.app .container .box-1 .icons .icon.last-icon img {
+  width: 26px;
+}
+
+.app .container .box-2 {
+  height: 160px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 40px;
+  gap: 20px;
+  position: relative;
+}
+
+.app .container .box-2 h1 {
+  color: var(--pale-blue);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.app .container .box-2 h1 strong {
+  font-size: 18px;
+}
+
+.progress {
+  height: 16px;
+  width: 100%;
+  background: var(--very-dark-blue);
+  border-radius: 8px;
+  display: flex;
+  padding: 2px;
+}
+
+.progress span {
+  width: 70%;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    hsl(6, 100%, 80%) 0%,
+    hsl(335, 100%, 65%) 100%
+  );
+  position: relative;
+}
+
+.progress span::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--pale-blue);
+  right: 2px;
+  top: 2px;
+  clip-path: circle();
+}
+
+.text-progress {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-progress small {
+  color: var(--pale-blue);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.tit {
+  position: absolute;
+  width: 190px;
+  height: 70px;
+  background: var(--pale-blue);
+  top: 0;
+  right: 40px;
+  transform: translateY(-65%);
+  border-radius: 12px 12px 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  gap: 10px;
+}
+
+.tit small {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+}
+
+.tit::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 30px;
+  background: var(--pale-blue);
+  bottom: -22px;
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    background-image: url("./images/bg-mobile.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+  .app .container {
+    height: fit-content;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: end;
+  }
+  .tit {
+    top: auto;
+    right: auto;
+    transform: translate(-50%, 50%);
+    bottom: 0;
+    left: 50%;
+    border-radius: 12px;
+  }
+  .app .container .box-2 h1 {
+    font-size: 14px;
+  }
+
+  .app .container .box-2 {
+    height: 200px;
+    justify-content: start;
+    gap: 20px;
+    padding-top: 40px;
+  }
+
+  .tit::after {
+    display: none !important;
+  }
+}
